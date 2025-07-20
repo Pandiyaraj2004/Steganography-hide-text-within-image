@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Decode</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2 class="form-title">Reveal Message from Image</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endwith %}
+
+    <form method="post" enctype="multipart/form-data">
+      <label>Upload encoded image:</label>
+      <input type="file" name="image" required>
+
+      <label>Password:</label>
+      <input type="password" name="password" required>
+
+      <button type="submit">Decode</button>
+    </form>
+
+    {% if decoded_message %}
+      <div class="decoded-box">
+        <h3>Decoded Message:</h3>
+        <p>{{ decoded_message }}</p>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>

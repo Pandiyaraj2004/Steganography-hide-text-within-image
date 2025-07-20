@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Steganography App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="homepage-container">
+        <h1 class="main-title">Welcome to Steganography App</h1>
+        <div class="button-container">
+            <a href="{{ url_for('encode') }}" class="home-btn">Encode Message</a>
+            <a href="{{ url_for('decode') }}" class="home-btn">Decode Message</a>
+        </div>
+    </div>
+</body>
+</html>
